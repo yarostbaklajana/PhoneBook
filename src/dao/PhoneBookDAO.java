@@ -24,7 +24,7 @@ public class PhoneBookDAO {
 			PreparedStatement statement = connection.prepareStatement(insertStatement);
 			statement.setString(1, contact.getFirstName());
 			statement.setString(2, contact.getLastName());
-			
+			statement.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			throw new DAOException("Can't connect to database");
