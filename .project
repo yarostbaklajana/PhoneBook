@@ -33,4 +33,11 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>SQLScripts/phonebookSQLScripts.sql</name>
+			<type>1</type>
+			<location>E:/yaros/workspace/Git Repository/PhoneBook/SQLScripts/phonebook.sql</location>
+		</link>
+	</linkedResources>
 </projectDescription>
