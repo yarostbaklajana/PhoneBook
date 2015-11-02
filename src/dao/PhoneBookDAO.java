@@ -19,11 +19,12 @@ public class PhoneBookDAO {
 	
 	public void addContact(Contact contact) throws DAOException {
 		final String insertStatement = "INSERT INTO `contacts` (`firstName`, `lastName`) VALUES (?, ?)";
-		try(Connection connection = connect()) {
+		try(Connection connection = connect();) {
+			System.out.println("Connected");
 			PreparedStatement statement = connection.prepareStatement(insertStatement);
-			statement.setString(0, contact.getFirstName());
-			statement.setString(1, contact.getLastName());
-			statement.execute();
+			statement.setString(1, contact.getFirstName());
+			statement.setString(2, contact.getLastName());
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			throw new DAOException("Can't connect to database");
@@ -32,7 +33,10 @@ public class PhoneBookDAO {
 		
 	}
 	
+
+	
 	public Connection connect() throws SQLException {
+		
 		return DriverManager.getConnection(hostName, userName, password);
 	}
 
