@@ -1,13 +1,14 @@
 package dao;
 
 import java.sql.Connection;
+
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.mysql.jdbc.Statement;
+import java.sql.Statement;
 
 import exceptions.DAOException;
 import models.Contact;
@@ -39,14 +40,14 @@ public class PhoneBookDAO {
 		ArrayList<Contact> contacts = new ArrayList<>();
 		final String selectAllQuery = "SELECT * FROM `contacts`;";
 
-		try (Connection connection = connect();) {
-			Statement statement = (Statement) connection.createStatement();
+		try (Connection connection = connect()) {
+			Statement statement = connection.createStatement();
 			ResultSet result = statement.executeQuery(selectAllQuery);
 
 			while (result.next()) {
 				Contact contact = new Contact();
-				contact.setFirstName(result.getString("`firstName`"));
-				contact.setLastName(result.getString("`lastName`"));
+				contact.setFirstName(result.getString("firstName"));
+				contact.setLastName(result.getString("lastName"));
 				contacts.add(contact);
 			}
 
@@ -61,7 +62,7 @@ public class PhoneBookDAO {
 		final String deleteStatement = "DELETE FROM `contacts` WHERE `id`=" + id + ";";
 		
 		try(Connection connection = connect();) {
-			Statement statement = (Statement) connection.createStatement();
+			Statement statement = connection.createStatement();
 			statement.executeUpdate(deleteStatement);
 			
 		} catch (SQLException e) {
