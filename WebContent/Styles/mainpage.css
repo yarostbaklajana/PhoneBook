@@ -1,0 +1,36 @@
+@CHARSET "UTF-8";
+
+body {
+	font-size: 16px;
+}
+
+.table {
+	border-collapse: collapse;
+}
+
+.header {
+	border-bottom: 3px solid darkgrey;
+}
+
+.diez {
+	font-weight: bold;
+	width: 30px;
+}
+
+.first_colomn, .second_colomn {
+	width: 200px;
+	color: black;
+	font-weight: bold:
+}
+
+.contacts {
+	border-bottom: 1px solid grey;
+}
+
+.buttons {
+	width: 200px;
+}
+
+.firstName, .lastName {
+	height: 50px;
+}
