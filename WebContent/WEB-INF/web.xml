@@ -2,14 +2,22 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>PhoneBook</display-name>
   <welcome-file-list>
-    <welcome-file>mainpage.jsp</welcome-file>
+    <welcome-file>phonebook</welcome-file>
   </welcome-file-list>
   <servlet>
-  	<servlet-name>PhoneBook</servlet-name>
-  	<servlet-class>controllers.PhoneBookController</servlet-class>
-  </servlet><servlet-mapping>
-  	<servlet-name>PhoneBook</servlet-name>
-  	<url-pattern>/phonebook</url-pattern>
+    <servlet-name>PhoneBook</servlet-name>
+    <servlet-class>controllers.PhoneBookController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PhoneBook</servlet-name>
+    <url-pattern>/phonebook</url-pattern>
   </servlet-mapping>
-  
+  <servlet>
+  	<servlet-name>DeleteContact</servlet-name>
+  	<servlet-class>controllers.DeleteContactController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>DeleteContact</servlet-name>
+  	<url-pattern>/delete</url-pattern>
+  </servlet-mapping>
 </web-app>
