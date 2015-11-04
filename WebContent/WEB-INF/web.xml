@@ -20,4 +20,12 @@
   	<servlet-name>DeleteContact</servlet-name>
   	<url-pattern>/delete</url-pattern>
   </servlet-mapping>
+  <servlet>
+  	<servlet-name>AddContact</servlet-name>
+  	<servlet-class>controllers.AddContactController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AddContact</servlet-name>
+  	<url-pattern>/add</url-pattern>
+  </servlet-mapping>
 </web-app>
