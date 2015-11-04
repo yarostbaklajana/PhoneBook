@@ -38,16 +38,18 @@ public class PhoneBookDAO {
 
 	public ArrayList<Contact> getAllContacts() throws DAOException{
 		ArrayList<Contact> contacts = new ArrayList<>();
-		final String selectAllQuery = "SELECT * FROM `contacts`;";
+		final String selectAllQuery = "SELECT id, firstName, lastName FROM `contacts`;";
 
 		try (Connection connection = connect()) {
 			Statement statement = connection.createStatement();
 			ResultSet result = statement.executeQuery(selectAllQuery);
 
 			while (result.next()) {
-				Contact contact = new Contact();
-				contact.setFirstName(result.getString("firstName"));
-				contact.setLastName(result.getString("lastName"));
+				
+				String firstName = result.getString("firstName");
+				String lastName = result.getString("lastName");
+				int id = result.getInt("id");
+				Contact contact = new Contact(id, firstName, lastName);
 				contacts.add(contact);
 			}
 
