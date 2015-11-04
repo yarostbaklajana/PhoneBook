@@ -4,6 +4,11 @@ body {
 	font-size: 16px;
 }
 
+.add {
+	marging-top: 20px;
+	marging-left: 20px;
+}
+
 .table {
 	border-collapse: collapse;
 }
