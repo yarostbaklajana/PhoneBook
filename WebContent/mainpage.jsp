@@ -11,11 +11,13 @@
 <body>
 	<% Integer size = (Integer)request.getAttribute("size"); %>
 	<%Integer i = 0; %>
+	
+	<p class="add">
+		<a href="/PhoneBook/add"><button>Add new contact</button></a>
+	</p>
+	
 
-	<table class="table table-striped">
-		
-		
-		
+	<table class="table table-striped">	
 		<tr class="header">
 			<td class="diez">#</td>
 			<td class="first_colomn">First name</td>
@@ -25,19 +27,17 @@
 
 
 		<c:forEach items="${contacts}" var="current">
-
 			<tr class="contacts">
-				<td class="number"><%= i++ %></td> 
+				<td class="number"><%= i++ %></td>
 				<td class="firstName"><c:out value="${current.firstName}" /></td>
 				<td class="lastName"><c:out value="${current.lastName}" /></td>
-				<td class="button"> 
+				<td class="button">
 					<form action="/PhoneBook/delete" method="post">
-					<input type="hidden" name="id" value="${current.id}" /> 
-					<input type="submit" value="Delete"></input>
+						<input type="hidden" name="id" value="${current.id}" /> <input
+							type="submit" value="Delete"></input>
 					</form>
 				</td>
 			</tr>
-
 		</c:forEach>
 	</table>
 
