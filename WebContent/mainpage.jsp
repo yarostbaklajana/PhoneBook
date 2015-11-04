@@ -30,7 +30,12 @@
 				<td class="number"><%= i++ %></td> 
 				<td class="firstName"><c:out value="${current.firstName}" /></td>
 				<td class="lastName"><c:out value="${current.lastName}" /></td>
-				<td class="button"> Button</td>
+				<td class="button"> 
+					<form action="/PhoneBook/delete" method="post">
+					<input type="hidden" name="id" value="${current.id}" /> 
+					<input type="submit" value="Delete"></input>
+					</form>
+				</td>
 			</tr>
 
 		</c:forEach>
