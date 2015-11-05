@@ -1,6 +1,9 @@
 package controllers;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,6 +27,7 @@ public class DeleteContactController extends HttpServlet {
 			throws ServletException, IOException {
 		Integer id = Integer.valueOf(request.getParameter("id"));
 		PhoneBookDAO dao;
+		
 		if (id != 0) {
 			
 			try {
@@ -33,8 +37,7 @@ public class DeleteContactController extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (DAOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				e.getMessage();
 			}
 		}
 		response.sendRedirect("/PhoneBook/phonebook");
