@@ -31,7 +31,7 @@ public class PhoneBookController extends HttpServlet {
 		try {
 			PhoneBookDAO dao = new PhoneBookDAO();
 			ArrayList<Contact> contacts = dao.getAllContacts();
-			Collections.sort(contacts);
+			
 			
 			request.setAttribute("contacts", contacts);
 			request.setAttribute("size", contacts.size());
