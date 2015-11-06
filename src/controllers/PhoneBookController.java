@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 import java.util.Collections;
 
-
 import javax.servlet.ServletException;
 
 import javax.servlet.http.HttpServlet;
@@ -26,13 +25,12 @@ public class PhoneBookController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		ArrayList<String> errorMessages = new ArrayList<>();		
-		
+		ArrayList<String> errorMessages = new ArrayList<>();
+
 		try {
 			PhoneBookDAO dao = new PhoneBookDAO();
 			ArrayList<Contact> contacts = dao.getAllContacts();
-			
-			
+
 			request.setAttribute("contacts", contacts);
 			request.setAttribute("size", contacts.size());
 		} catch (DAOException e) {
@@ -41,8 +39,8 @@ public class PhoneBookController extends HttpServlet {
 			request.setAttribute("errorMessages", errorMessages);
 			request.getRequestDispatcher("mainpage.jsp").forward(request, response);
 			return;
-		}			
-		
+		}
+
 		request.getRequestDispatcher("mainpage.jsp").forward(request, response);
 	}
 
