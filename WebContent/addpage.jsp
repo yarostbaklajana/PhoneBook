@@ -5,12 +5,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Phone Book | Add Contact</title>
 </head>
 <body>
 	<form action="/PhoneBook/add" method="post">
-		<input type="text" name="firstName" value="<%= request.getAttribute("firstName") %>"><br> <input
-			type="text" name="lastName" value="<%= request.getAttribute("lastName") %>"><br>
+		<input type="text" name="firstName" value="<%= request.getAttribute("firstName") %>" placeholder="First Name"><br> <input
+			type="text" name="lastName" value="<%= request.getAttribute("lastName") %>" placeholder="Last Name"><br>
 		<p>
 			<a href="/PhoneBook/phonebook">Cancel</a> 
 			<input type="submit"				value="Save">
