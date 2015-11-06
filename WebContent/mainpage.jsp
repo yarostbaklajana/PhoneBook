@@ -6,11 +6,9 @@
 <head>
 <link rel="stylesheet" type="text/css" href="Styles/mainpage.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Phone Book</title>
 </head>
 <body>
-	<% Integer size = (Integer)request.getAttribute("size"); %>
-	<%Integer i = 0; %>
 	
 	<p class="add">
 		<a href="/PhoneBook/add"><button>Add new contact</button></a>
@@ -19,7 +17,6 @@
 
 	<table class="table table-striped">	
 		<tr class="header">
-			<td class="diez">#</td>
 			<td class="first_colomn">First name</td>
 			<td class="second_colomn">Last name</td>
 			<td class="buttons"></td>
@@ -28,7 +25,6 @@
 
 		<c:forEach items="${contacts}" var="current">
 			<tr class="contacts">
-				<td class="number"><%= i++ %></td>
 				<td class="firstName"><c:out value="${current.firstName}" /></td>
 				<td class="lastName"><c:out value="${current.lastName}" /></td>
 				<td class="button">
