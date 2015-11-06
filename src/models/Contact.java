@@ -1,6 +1,6 @@
 package models;
 
-public class Contact implements Comparable<Contact>{
+public class Contact {
 	private int id;
 	private String firstName;
 	private String lastName;
@@ -44,9 +44,6 @@ public class Contact implements Comparable<Contact>{
 		return "firstName = " + firstName + " lastName = " + lastName;
 	}
 
-	@Override
-	public int compareTo(Contact o) {		
-		return firstName.compareTo(o.getFirstName());
-	}
+	
 
 }
