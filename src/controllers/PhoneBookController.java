@@ -1,14 +1,14 @@
 package controllers;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+
 import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.Collections;
-import java.util.List;
+
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,10 +26,7 @@ public class PhoneBookController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		ArrayList<String> errorMessages = new ArrayList<>();
-		
-		
-		
+		ArrayList<String> errorMessages = new ArrayList<>();		
 		
 		try {
 			PhoneBookDAO dao = new PhoneBookDAO();
@@ -38,9 +35,6 @@ public class PhoneBookController extends HttpServlet {
 			
 			request.setAttribute("contacts", contacts);
 			request.setAttribute("size", contacts.size());
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (DAOException e) {
 			// TODO Auto-generated catch block
 			errorMessages.add(e.getMessage());
