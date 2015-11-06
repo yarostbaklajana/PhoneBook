@@ -40,7 +40,15 @@
 			</tr>
 		</c:forEach>
 	</table>
-
+	<h1>
+		<c:if test="${errorMessages ne null}">
+			<ul>
+				<c:forEach items="${errorMessages}" var="errorMessage">
+					<li>${errorMessage}</li>
+				</c:forEach>
+			</ul>
+		</c:if>
+	</h1>
 
 
 
