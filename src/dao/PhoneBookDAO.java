@@ -42,7 +42,7 @@ public class PhoneBookDAO {
 
 	public ArrayList<Contact> getAllContacts() throws DAOException{
 		ArrayList<Contact> contacts = new ArrayList<>();
-		final String selectAllQuery = "SELECT id, firstName, lastName FROM `contacts`;";
+		final String selectAllQuery = "SELECT id, firstName, lastName FROM `contacts` ORDER BY firstName;";
 
 		try (Connection connection = connect()) {
 			Statement statement = connection.createStatement();
