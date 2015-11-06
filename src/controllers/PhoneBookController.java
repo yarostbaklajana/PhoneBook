@@ -26,6 +26,11 @@ public class PhoneBookController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		ArrayList<String> errorMessages = new ArrayList<>();
+		
+		
+		
+		
 		try {
 			PhoneBookDAO dao = new PhoneBookDAO();
 			ArrayList<Contact> contacts = dao.getAllContacts();
@@ -38,7 +43,10 @@ public class PhoneBookController extends HttpServlet {
 			e.printStackTrace();
 		} catch (DAOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			errorMessages.add(e.getMessage());
+			request.setAttribute("errorMessages", errorMessages);
+			request.getRequestDispatcher("mainpage.jsp").forward(request, response);
+			return;
 		}			
 		
 		request.getRequestDispatcher("mainpage.jsp").forward(request, response);
