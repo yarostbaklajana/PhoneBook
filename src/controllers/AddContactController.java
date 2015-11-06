@@ -34,20 +34,19 @@ public class AddContactController extends HttpServlet {
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
 
+		request.setAttribute("firstName", firstName);
+		request.setAttribute("lastName", lastName);
+		
 		PhoneBookDAO dao;
 
 		List<String> errorMessages = new ArrayList<>();
 
 		if (firstName.equals("") || firstName == null) {
 			errorMessages.add("The first name field is empty!");
-			request.setAttribute("firstName", "");
-			request.setAttribute("lastName", lastName);
 		}
 
 		if (lastName.equals("") || lastName == null) {
 			errorMessages.add("The last name field is empty!");
-			request.setAttribute("firstName", firstName);
-			request.setAttribute("lastName", "");
 		}
 
 		if (!errorMessages.isEmpty()) {
@@ -60,10 +59,9 @@ public class AddContactController extends HttpServlet {
 			dao = new PhoneBookDAO();
 			dao.addContact(new Contact(firstName, lastName));
 		} catch (DAOException e) {
-			e.getMessage();;
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			errorMessages.add(e.getMessage());
+			request.setAttribute("errorMessages", errorMessages);
+			request.getRequestDispatcher("addpage.jsp").forward(request, response);
 		}
 
 		response.sendRedirect("/PhoneBook/phonebook");
