@@ -18,8 +18,12 @@ public class PhoneBookDAO {
 	public final String userName = "yarostbaklajana";
 	public final String password = "udusen81";
 
-	public PhoneBookDAO() throws ClassNotFoundException {
-		Class.forName("com.mysql.jdbc.Driver");
+	public PhoneBookDAO(){
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void addContact(Contact contact) throws DAOException {
