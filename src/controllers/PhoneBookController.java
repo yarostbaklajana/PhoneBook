@@ -3,6 +3,9 @@ package controllers;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,6 +29,8 @@ public class PhoneBookController extends HttpServlet {
 		try {
 			PhoneBookDAO dao = new PhoneBookDAO();
 			ArrayList<Contact> contacts = dao.getAllContacts();
+			Collections.sort(contacts);
+			
 			request.setAttribute("contacts", contacts);
 			request.setAttribute("size", contacts.size());
 		} catch (ClassNotFoundException e) {
