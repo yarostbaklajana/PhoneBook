@@ -1,14 +1,12 @@
 package dao;
 
 import java.sql.Connection;
-
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import exceptions.DAOException;
 import models.Contact;
@@ -28,8 +26,7 @@ public class PhoneBookDAO {
 
 	public void addContact(Contact contact) throws DAOException {
 		final String insertStatement = "INSERT INTO `contacts` (`firstName`, `lastName`) VALUES (?, ?)";
-		try (Connection connection = connect();) {
-			System.out.println("Connected");
+		try (Connection connection = connect();) {			
 			PreparedStatement statement = connection.prepareStatement(insertStatement);
 			statement.setString(1, contact.getFirstName());
 			statement.setString(2, contact.getLastName());
@@ -65,11 +62,12 @@ public class PhoneBookDAO {
 	}
 	
 	public void deleteContact(int id) throws DAOException {
-		final String deleteStatement = "DELETE FROM `contacts` WHERE `id`=" + id + ";";
+		final String deleteStatement = "DELETE FROM `contacts` WHERE `id`=?;";
 		
 		try(Connection connection = connect();) {
-			Statement statement = connection.createStatement();
-			statement.executeUpdate(deleteStatement);
+			PreparedStatement statement = connection.prepareStatement(deleteStatement);
+			statement.setInt(1, id);
+			statement.execute();
 			
 		} catch (SQLException e) {
 			throw new DAOException("Unable to delete contact");

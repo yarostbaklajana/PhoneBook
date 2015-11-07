@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import dao.PhoneBookDAO;
 import exceptions.DAOException;
 
-@WebServlet("/DeleteContactController")
 public class DeleteContactController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -24,18 +23,14 @@ public class DeleteContactController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Integer id = Integer.valueOf(request.getParameter("id"));
-		PhoneBookDAO dao;
+		Integer id = Integer.valueOf(request.getParameter("id"));		
 		ArrayList<String> errorMessages = new ArrayList<>();
 		if (id != 0) {
 
 			try {
-				dao = new PhoneBookDAO();
+				PhoneBookDAO dao = new PhoneBookDAO();
 				dao.deleteContact(id);
-			} catch (DAOException e) {
-				errorMessages.add(e.getMessage());
-				request.setAttribute("errorMessages", errorMessages);
-				response.sendRedirect("/PhoneBook");
+			} catch (DAOException e) {				
 			}
 		}
 		response.sendRedirect("/PhoneBook");

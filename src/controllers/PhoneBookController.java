@@ -20,7 +20,7 @@ public class PhoneBookController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public PhoneBookController() {
-		// TODO Auto-generated constructor stub
+	
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -30,24 +30,16 @@ public class PhoneBookController extends HttpServlet {
 		try {
 			PhoneBookDAO dao = new PhoneBookDAO();
 			ArrayList<Contact> contacts = dao.getAllContacts();
-
 			request.setAttribute("contacts", contacts);
-			request.setAttribute("size", contacts.size());
-		} catch (DAOException e) {
-			// TODO Auto-generated catch block
+			
+		} catch (DAOException e) {			
 			errorMessages.add(e.getMessage());
 			request.setAttribute("errorMessages", errorMessages);
-			request.getRequestDispatcher("mainpage.jsp").forward(request, response);
-			return;
 		}
 
 		request.getRequestDispatcher("mainpage.jsp").forward(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+	
 
 }

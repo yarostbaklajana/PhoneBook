@@ -16,9 +16,6 @@ public class Contact {
 		this.lastName = lastName;
 	}
 
-	public Contact() {
-		// TODO Auto-generated constructor stub
-	}
 
 	public int getId() {
 		return id;
@@ -28,22 +25,7 @@ public class Contact {
 		return firstName;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
 	public String getLastName() {
 		return lastName;
 	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-	
-	public String toString() {
-		return "firstName = " + firstName + " lastName = " + lastName;
-	}
-
-	
-
 }
