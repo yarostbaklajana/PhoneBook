@@ -1,19 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="UTF-8">
 <title>Phone Book | Add Contact</title>
 </head>
 <body>
 	<form action="/PhoneBook/add" method="post">
-		<input type="text" name="firstName" value="<%= request.getAttribute("firstName") %>" placeholder="First Name"><br> <input
-			type="text" name="lastName" value="<%= request.getAttribute("lastName") %>" placeholder="Last Name"><br>
+		<input type="text" name="firstName" value="<%= request.getAttribute("firstName") %>" placeholder="First Name"><br> 
+		<input type="text" name="lastName" value="<%= request.getAttribute("lastName") %>" placeholder="Last Name"><br>
 		<p>
 			<a href="/PhoneBook/phonebook">Cancel</a> 
-			<input type="submit"				value="Save">
+			<input type="submit" value="Save">
 		</p>
 	</form>
 	<p>

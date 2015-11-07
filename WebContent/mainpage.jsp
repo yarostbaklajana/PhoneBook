@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="Styles/mainpage.css">
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="UTF-8">
 <title>Phone Book</title>
 </head>
 <body>
@@ -15,19 +15,19 @@
 	</p>
 	
 
-	<table class="table table-striped">	
+	<table class="table">	
 		<tr class="header">
-			<td class="first_colomn">First name</td>
-			<td class="second_colomn">Last name</td>
+			<td class="title-column">First name</td>
+			<td class="title-column">Last name</td>
 			<td class="buttons"></td>
 		</tr>
 
 
 		<c:forEach items="${contacts}" var="current">
 			<tr class="contacts">
-				<td class="firstName"><c:out value="${current.firstName}" /></td>
-				<td class="lastName"><c:out value="${current.lastName}" /></td>
-				<td class="button">
+				<td class="column"><c:out value="${current.firstName}" /></td>
+				<td class="column"><c:out value="${current.lastName}" /></td>
+				<td class="buttons-column">
 					<form action="/PhoneBook/delete" method="post">
 						<input type="hidden" name="id" value="${current.id}" /> <input
 							type="submit" value="Delete"></input>
